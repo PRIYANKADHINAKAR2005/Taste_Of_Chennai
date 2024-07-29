@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="title" content="Taste of Chennai- Food Varieties Of Chennai">
+    <meta name="desciption" content="Words of taste buds flows here">
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <!--Favicon link-->
+
+    <link rel="shortcut icon" href="\images\logo.jpeg" type="image">
+    <title>Taste Of Chennai</title>
+
+    <!--Google Fonts Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+    <!--Preload Images-->
+    <link rel="preload" as="image" href="/public/images/hero-slider-1.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-2.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-3.jpg">
+    <style>
+      html,body{
+        overflow: hidden;
+      }
+    </style>
+</head>
+<body>
+    <%- include('partials/header.ejs') %> 
+<main>
+    <article>
+        <!--
+        HERO SSECTION
+        -->
+        
+        <section class="hero text-center" aria-label="home" id="home">
+            <ul class="hero-slider" data-hero-slider>
+                <li class="slider-item active" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-1.jpg" width="1880" height="950" alt="Delicious food slide 1" class="img-cover">
+                    </div>
+                    
+                </li>
+                <li class="slider-item" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-2.jpg" width="1880" height="950" alt="Delicious food slide 2" class="img-cover">
+                    </div>
+                   
+                </li>
+                <li class="slider-item" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-3.jpg" width="1880" height="950" alt="Delicious food slide 3" class="img-cover">
+                    </div>
+                   
+            </ul>
+        
+            <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+                <ion-icon name="chevron-back"></ion-icon>
+            </button>
+            <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+                <ion-icon name="chevron-forward"></ion-icon>
+            </button>
+         <h2 class="header-contact">ADD POST</h2>
+    <div class="contact-container" >
+        <form class="contact-form" id="myForm" action="/post/add/submit" method="POST">
+            <div class="form-group"><input type="text" name="foodName" placeholder="Food Name" required></div>
+            <div class="form-group"><input type="text" name="resturant" placeholder="Restaurant" required></div>
+            <div class="form-group"><textarea name="content" placeholder="Content" required></textarea></div>
+            <input class="submit-btn" type="submit" value="Submit Post">
+        </form>
+        
+        
+    </div>
+</section>
+</article>
+</main>
+
+
+
+<script >
+    'use strict';
+
+
+  
+
+
+
+
+/*Hero Slider*/
+
+
+const heroSlider = document.querySelector("[data-hero-slider]");
+const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
+const heroSliderPrevBtn = document.querySelector("[data-prev-btn]");
+const heroSliderNextBtn = document.querySelector("[data-next-btn]");
+
+if (heroSliderItems.length > 0) {
+  let currentSlidePos = 0;
+  let lastActiveSliderItem = heroSliderItems[0];
+
+  const updateSliderPos = function() {
+    lastActiveSliderItem.classList.remove("active");
+    heroSliderItems[currentSlidePos].classList.add("active");
+    lastActiveSliderItem = heroSliderItems[currentSlidePos];
+  };
+
+  const slideNext = function() {
+    currentSlidePos = (currentSlidePos + 1) % heroSliderItems.length;
+    updateSliderPos();
+  };
+
+  const slidePrev = function() {
+    currentSlidePos = (currentSlidePos - 1 + heroSliderItems.length) % heroSliderItems.length;
+    updateSliderPos();
+  };
+
+  if (heroSliderNextBtn && heroSliderPrevBtn) {
+    heroSliderNextBtn.addEventListener("click", slideNext);
+    heroSliderPrevBtn.addEventListener("click", slidePrev);
+  }
+
+  let autoSlideInterval;
+  const autoSlide = function() {
+    autoSlideInterval = setInterval(slideNext, 4000);
+  };
+
+  const stopAutoSlide = function() {
+    clearInterval(autoSlideInterval);
+  };
+
+  if (heroSliderNextBtn && heroSliderPrevBtn) {
+    [heroSliderNextBtn, heroSliderPrevBtn].forEach(button => {
+      button.addEventListener("mouseover", stopAutoSlide);
+      button.addEventListener("mouseout", autoSlide);
+    });
+  }
+
+  window.addEventListener("load", autoSlide);
+}
+
+
+  
+
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+    

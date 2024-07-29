@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="title" content="Taste of Chennai- Food Varieties Of Chennai">
+    <meta name="desciption" content="Words of taste buds flows here">
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <!--Favicon link-->
+
+    <link rel="shortcut icon" href="\images\logo.jpeg" type="image">
+    <title>Taste Of Chennai</title>
+
+    <!--Google Fonts Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+    <!--Preload Images-->
+    <link rel="preload" as="image" href="/public/images/hero-slider-1.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-2.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-3.jpg">
+    
+
+    <script>
+        $(document).ready(function() {
+            
+            const path = window.location.pathname;
+            
+           
+            $(".itemsfooter").each(function() {
+                const linkPath = $(this).find("a").attr("href");
+                
+                if (linkPath === path) {
+                    $(this).addClass("activatefooter");
+                   
+                }
+            });
+        });
+        function goToHomePage()
+        {
+            window.location.href='/';
+        }
+        
+       
+       
+    </script>
+</head>
+<body >
+
+    <footer class="footer-wrapper">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-logo" onclick="goToHomePage()">
+              <h1>Taste Of <span>Chennai</span></h1>
+            </div>
+            <nav class="footer-nav">
+              <ul>
+                <li class="footer-item"><a href="/">Home</a></li>
+                <li class="footer-item"><a href="/about">About Us</a></li>
+                <li class="footer-item"><a href="/post">Posts</a></li>
+                <li class="footer-item"><a href="/contact">Contact Us</a></li>
+              </ul>
+            </nav>
+          </div>
+          <p class="footer-copyright">© 2024 Priyanka. All rights reserved.</p>
+        </div>
+      </footer>
+      
+    
+</body>
+</html>

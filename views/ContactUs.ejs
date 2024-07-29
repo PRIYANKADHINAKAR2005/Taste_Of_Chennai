@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="title" content="Taste of Chennai- Food Varieties Of Chennai">
+    <meta name="desciption" content="Words of taste buds flows here">
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <!--Favicon link-->
+
+    <link rel="shortcut icon" href="\images\logo.jpeg" type="image">
+    <title>Taste Of Chennai</title>
+
+    <!--Google Fonts Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+    <!--Preload Images-->
+    <link rel="preload" as="image" href="/public/images/hero-slider-1.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-2.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-3.jpg">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            
+            height: 100%;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            flex: 1 0 auto; /* Changed to flex-grow: 1, flex-shrink: 0 */
+            display: flex;
+            overflow: hidden; 
+            height:min-content;
+            flex-direction: column;
+        }
+        
+        article {
+            flex: 1 0 auto; /* Allow article to grow but not shrink */
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Make hero section take full height of its container */
+        }
+
+        footer {
+            flex-shrink: 0;
+            margin-top: auto; /* Push footer to the bottom if content is short */
+        }
+        
+    </style>
+</head>
+<body>
+    <%- include('partials/header.ejs') %> 
+    <main>
+        <article>
+            <!--
+            HERO SSECTION
+            -->
+            
+            <section class="hero text-center" aria-label="home" id="home">
+                <ul class="hero-slider" data-hero-slider>
+                    <li class="slider-item active" data-hero-slider-item>
+                        <div class="slider-bg">
+                            <img src="/images/hero-slider-1.jpg" width="1880" height="950" alt="Delicious food slide 1" class="img-cover">
+                        </div>
+                        
+                    </li>
+                    <li class="slider-item" data-hero-slider-item>
+                        <div class="slider-bg">
+                            <img src="/images/hero-slider-2.jpg" width="1880" height="950" alt="Delicious food slide 2" class="img-cover">
+                        </div>
+                       
+                    </li>
+                    <li class="slider-item" data-hero-slider-item>
+                        <div class="slider-bg">
+                            <img src="/images/hero-slider-3.jpg" width="1880" height="950" alt="Delicious food slide 3" class="img-cover">
+                        </div>
+                       
+                </ul>
+            
+                <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+                    <ion-icon name="chevron-back"></ion-icon>
+                </button>
+                <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+                    <ion-icon name="chevron-forward"></ion-icon>
+                </button>
+             <h2 class="header-contact">Contact Us</h2>
+        <div class="contact-container" >
+            
+            <form class="contact-form" id="myForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" >Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+</article>
+</main>
+
+
+<%- include("partials/footer.ejs")%>
+        
+    
+        
+  
+   
+
+
+
+<script >
+    'use strict';
+
+
+   
+ 
+  document.addEventListener('DOMContentLoaded', function() {
+    // Log to ensure the script is running
+    console.log('DOM fully loaded and parsed');
+    
+    // Ensure the form element exists and the script is correctly selecting it
+    var form = document.querySelector('.contact-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('myForm').reset();
+            alert('Thank you for your message! We will get back to you soon.');
+            
+        });
+    } else {
+        console.error('Form not found');
+    }
+});
+
+
+
+
+/*Hero Slider*/
+
+
+const heroSlider = document.querySelector("[data-hero-slider]");
+const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
+const heroSliderPrevBtn = document.querySelector("[data-prev-btn]");
+const heroSliderNextBtn = document.querySelector("[data-next-btn]");
+
+if (heroSliderItems.length > 0) {
+  let currentSlidePos = 0;
+  let lastActiveSliderItem = heroSliderItems[0];
+
+  const updateSliderPos = function() {
+    lastActiveSliderItem.classList.remove("active");
+    heroSliderItems[currentSlidePos].classList.add("active");
+    lastActiveSliderItem = heroSliderItems[currentSlidePos];
+  };
+
+  const slideNext = function() {
+    currentSlidePos = (currentSlidePos + 1) % heroSliderItems.length;
+    updateSliderPos();
+  };
+
+  const slidePrev = function() {
+    currentSlidePos = (currentSlidePos - 1 + heroSliderItems.length) % heroSliderItems.length;
+    updateSliderPos();
+  };
+
+  if (heroSliderNextBtn && heroSliderPrevBtn) {
+    heroSliderNextBtn.addEventListener("click", slideNext);
+    heroSliderPrevBtn.addEventListener("click", slidePrev);
+  }
+
+  let autoSlideInterval;
+  const autoSlide = function() {
+    autoSlideInterval = setInterval(slideNext, 4000);
+  };
+
+  const stopAutoSlide = function() {
+    clearInterval(autoSlideInterval);
+  };
+
+  if (heroSliderNextBtn && heroSliderPrevBtn) {
+    [heroSliderNextBtn, heroSliderPrevBtn].forEach(button => {
+      button.addEventListener("mouseover", stopAutoSlide);
+      button.addEventListener("mouseout", autoSlide);
+    });
+  }
+
+  window.addEventListener("load", autoSlide);
+}
+
+
+  
+
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>

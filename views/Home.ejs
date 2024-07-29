@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="title" content="Taste of Chennai- Food Varieties Of Chennai">
+    <meta name="desciption" content="Words of taste buds flows here">
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <!--Favicon link-->
+
+    <link rel="shortcut icon" href="\images\logo.jpeg" type="image">
+    <title>Taste Of Chennai</title>
+
+    <!--Google Fonts Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+    <!--Preload Images-->
+    <link rel="preload" as="image" href="/public/images/hero-slider-1.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-2.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-3.jpg">
+    
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+<main>
+    <article>
+        <!--
+        HERO SSECTION
+        -->
+        
+        <section class="hero text-center" aria-label="home" id="home">
+            <ul class="hero-slider" data-hero-slider>
+                <li class="slider-item active" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-1.jpg" width="1880" height="950" alt="Delicious food slide 1" class="img-cover">
+                    </div>
+                    <p class="label-2 section-subtitle slider-reveal">Savor the Spices, Experience the Tradition</p>
+                    <h1 class="display-1 hero-title slider-reveal">For the love of<br>delicious food</h1>
+                    <p class="body-2 hero-text slider-reveal">Where Every Bite Tells a Story</p>
+                    <a href="/post" class="btn btn-primary slider-reveal">
+                        <span class="text text-1">View Posts</span>
+                        <span class="text text-2" aria-hidden="true">View Posts</span>
+                    </a>
+                </li>
+                <li class="slider-item" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-2.jpg" width="1880" height="950" alt="Delicious food slide 2" class="img-cover">
+                    </div>
+                    <p class="label-2 section-subtitle slider-reveal">Discover the Authentic Flavors of Chennai</p>
+                    <h1 class="display-1 hero-title slider-reveal">Exploring Rich and<br>Flavorful Cuisine</h1>
+                    <p class="body-2 hero-text slider-reveal">Where Every Bite Tells a Story</p>
+                    <a href="/post" class="btn btn-primary slider-reveal">
+                        <span class="text text-1">View Posts</span>
+                        <span class="text text-2" aria-hidden="true">View Posts</span>
+                    </a>
+                </li>
+                <li class="slider-item" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-3.jpg" width="1880" height="950" alt="Delicious food slide 3" class="img-cover">
+                    </div>
+                    <p class="label-2 section-subtitle slider-reveal">A Feast of Flavors from Chennai's Heart</p>
+                    <h1 class="display-1 hero-title slider-reveal">Indulge in Chennai's<br>Best Kept Food Secrets</h1>
+                    <p class="body-2 hero-text slider-reveal">Where Every Bite Tells a Story</p>
+                    <a href="/post" class="btn btn-primary slider-reveal">
+                        <span class="text text-1">View Posts</span>
+                        <span class="text text-2" aria-hidden="true">View Posts</span>
+                    </a>
+                </li>
+            </ul>
+        
+            <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+                <ion-icon name="chevron-back"></ion-icon>
+            </button>
+            <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+                <ion-icon name="chevron-forward"></ion-icon>
+            </button>
+        </section>
+
+
+        
+
+
+        <!--
+        SERVICE SECTION
+        -->
+        <section class="section service bg-black-10 text-center" aria-label="service">
+          <div class="container">
+            <p class="section-subtitle label-2 header-contact">Flavors For Royalty</p>
+            <h2 class="headline-1 section-title">Top Voices Of Chennai</h2>
+            <ul class="grid-list">
+              <li>
+                <div class="service-card">
+                  <a href="" class="has-before hover:shine">
+                    <figure class="card-banner img-holder" >
+                      <img src="/images/service-1.jpg" width="100" height="" alt=""
+                      loading="lazy" class="img-cover yesimage">
+                    </figure>
+                  </a>
+
+                  <div class="card-content">
+                    <h3 class="title-4 card-title">
+                      <a href="#">Innovate Dishes</a>
+                    </h3>
+                    <a href="/post" class="btn-text hovet-underline label-2">View Posts</a>
+                      
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+                  <a href="" class="has-before hover:shine">
+                    <figure class="card-banner img-holder" style="--width: ; --height: ;">
+                      <img src="/images/service-2.jpg" width="285" height="336" alt=""
+                      loading="lazy" class="img-cover yesimage">
+                    </figure>
+                  </a>
+
+                  <div class="card-content">
+                    <h3 class="title-4 card-title">
+                      <a href="#">Wonderful restuarants</a>
+                    </h3>
+                    <a href="/post" class="btn-text hovet-underline label-2">View Posts</a>
+                      
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+                  <a href="" class="has-before hover:shine">
+                    <figure class="card-banner img-holder" style="--width: ; --height: ;">
+                      <img src="/images/service-3.jpg" width="285" height="336" alt=""
+                      loading="lazy" class="img-cover yesimage">
+                    </figure>
+                  </a>
+
+                  <div class="card-content">
+                    <h3 class="title-4 card-title">
+                      <a href="#">Share your thoughts</a>
+                    </h3>
+                    <a href="/post" class="btn-text hovet-underline label-2">View Posts</a>
+                      
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <img src="/images/shape-1.png" width="246" height="412" loading="lazy" alt="" class="shape shape-1 move-anim">
+            <img src="/images/shape-2.png" width="343" height="345" loading="lazy" alt="" class="shape shape-2 move-anim">
+          </div>
+        </section>
+
+        <!--
+        ABOUT SECTION
+        -->
+        <section class="section about text-center" aria-labelledby="about-label" id="about">
+          <div class="container">
+            <div class="about-content">
+            <p class="header-contact section-subtitle" id="about-label">Our Story</p>
+
+            <h2 class="headline-1 section-title ">Every Fla vor Tells a Story</h2>
+            <p class="section-text">
+              Welcome to "Taste of Chennai," your gateway to exploring the rich and diverse culinary heritage of Chennai! Our website is dedicated to celebrating the vibrant food culture of this incredible city, known for its iconic dishes, aromatic spices, and unique flavors.
+            </p>
+
+            <a href="/contact" class="body-1 contact-number hover-underline centera">Taste Of Chennai</a>
+            <a href="#" class="btn btn-primary">
+              <span class="text text-1">Read More</span>
+             
+              <span class="text text-2" aria-hidden="true">Read More</span>
+            </a>
+
+            <div class="service-card" style="width:40%; height:40%;
+            margin-left:33%; margin-top:3% ">
+              <a href="" class="has-before hover:shine">
+                <figure class="card-banner img-holder" style="--width: ; --height: ;">
+                  <img src="/images/event-2.jpg" width="285" height="336" alt=""
+                  loading="lazy" class="img-cover yesimage" >
+                </figure>
+              </a>
+              </div>
+              
+          </div>
+
+            
+<div class="abs-img abs-img-2 has-before center">
+  <img src="/images/logo.jpeg" width="133" height="134" loading="lazy" alt=""
+  style="
+    margin: 12px;
+    width: 90px;
+    height: 90px;
+    border-radius: 60%;
+">
+</div>
+         
+<img src="/images/shape-3.png" width="197" height="194" loading="lazy"
+          alt="" class="shape">
+
+
+
+          
+
+          </div>
+        </section>
+
+       
+
+
+
+    </article>
+</main>
+    
+<%- include("partials/footer.ejs") %>
+    </body>
+    <script >
+        'use strict';
+
+        /*Hero Slider*/
+
+        // Selectors for the slider elements
+const heroSlider = document.querySelector("[data-hero-slider]");
+const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
+const heroSliderPrevBtn = document.querySelector("[data-prev-btn]");
+const heroSliderNextBtn = document.querySelector("[data-next-btn]");
+
+let currentSlidePos = 0;
+let lastActiveSliderItem = heroSliderItems[0];
+
+// Function to update slider position
+const updateSliderPos = function() {
+  lastActiveSliderItem.classList.remove("active");
+  heroSliderItems[currentSlidePos].classList.add("active");
+  lastActiveSliderItem = heroSliderItems[currentSlidePos];
+}
+
+// Function to move to the next slide
+const slideNext = function() {
+  if (currentSlidePos >= heroSliderItems.length - 1) {
+    currentSlidePos = 0; // Loop back to the first slide
+  } else {
+    currentSlidePos++;
+  }
+  updateSliderPos();
+}
+
+// Function to move to the previous slide
+const slidePrev = function() {
+  if (currentSlidePos <= 0) {
+    currentSlidePos = heroSliderItems.length - 1; // Go to the last slide
+  } else {
+    currentSlidePos--;
+  }
+  updateSliderPos();
+}
+
+// Event listeners for the navigation buttons
+heroSliderNextBtn.addEventListener("click", slideNext);
+heroSliderPrevBtn.addEventListener("click", slidePrev);
+
+// Auto slide functionality
+let autoSlideInterval;
+const autoSlide = function() {
+  autoSlideInterval = setInterval(slideNext, 7000);
+}
+
+// Stop auto slide on button hover
+function addEventOnElements(elements, event, handler) {
+  elements.forEach(element => {
+    element.addEventListener(event, handler);
+  });
+}
+
+addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseover", function() {
+  clearInterval(autoSlideInterval);
+});
+
+addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseout", autoSlide);
+
+// Start auto slide on window load
+window.addEventListener("load", autoSlide);
+
+
+
+
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>

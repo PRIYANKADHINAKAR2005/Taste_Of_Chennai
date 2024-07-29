@@ -1,0 +1,291 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="title" content="Taste of Chennai- Food Varieties Of Chennai">
+    <meta name="desciption" content="Words of taste buds flows here">
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <!--Favicon link-->
+
+    <link rel="shortcut icon" href="\images\logo.jpeg" type="image">
+    <title>Taste Of Chennai</title>
+
+    <!--Google Fonts Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+    <!--Preload Images-->
+    <link rel="preload" as="image" href="/public/images/hero-slider-1.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-2.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-3.jpg">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            flex: 1 0 auto; /* Changed to flex-grow: 1, flex-shrink: 0 */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        article {
+            flex: 1 0 auto; /* Allow article to grow but not shrink */
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Make hero section take full height of its container */
+        }
+
+        footer {
+            flex-shrink: 0;
+            margin-top: auto; /* Push footer to the bottom if content is short */
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/header.ejs') %> 
+<main>
+    <article>
+        <!--
+        HERO SSECTION
+        -->
+        
+        <section class="hero text-center" aria-label="home" id="home">
+            <ul class="hero-slider" data-hero-slider>
+                <li class="slider-item active" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-1.jpg" width="1880" height="950" alt="Delicious food slide 1" class="img-cover">
+                    </div>
+                    
+                </li>
+                <li class="slider-item" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-2.jpg" width="1880" height="950" alt="Delicious food slide 2" class="img-cover">
+                    </div>
+                   
+                </li>
+                <li class="slider-item" data-hero-slider-item>
+                    <div class="slider-bg">
+                        <img src="/images/hero-slider-3.jpg" width="1880" height="950" alt="Delicious food slide 3" class="img-cover">
+                    </div>
+                   
+            </ul>
+        
+            <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+                <ion-icon name="chevron-back"></ion-icon>
+            </button>
+            <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+                <ion-icon name="chevron-forward"></ion-icon>
+            </button>
+         <h2 class="header-contact">POSTs</h2>
+
+         <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search posts..." id="search-bar">
+            <select class="search-category" id="search-category">
+                <option value="">All Categories</option>
+                <option value="foodName">Food Name</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="author">Author</option>
+            </select>
+            <button class="search-button" onclick="searchPosts()">Search</button>
+        </div>
+        
+
+        <form method="GET" action="/post/add">
+            <button type="submit" class="add-post-button">Add Post</button>
+        </form>
+
+        <% if (post.length === 0) { %>
+            <p>No posts available.</p>
+        <% } else { %>
+            <ul class="post-list">
+                <% post.forEach(function(p) { %>
+                    <li class="post-item">
+                        <h2><%= p.foodName %></h2>
+                        <p><strong>Restaurant:</strong> <%= p.resturant %></p>
+                        <p><strong>Content:</strong> <%= p.content %></p>
+                        <p><strong>Author:</strong> <%= p.author %></p>
+                        <p><strong>Date:</strong> <%= p.date %></p>
+                        <div class="post-actions">
+                            <form method="POST" action="/post/delete">
+                                <input type="hidden" name="foodName" value="<%= p.foodName %>">
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                            <form method="GET" action="/post/authoredit">
+                                <input type="hidden" name="foodName" value="<%= p.foodName %>">
+                                <button type="submit" class="edit-button">Edit</button>
+                            </form>
+                            
+                        </div>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } %>
+    </div>
+</article>
+</main>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+        </div>
+   
+</section>
+<%- include("partials/footer.ejs") %>
+
+
+
+
+
+<script >
+    'use strict';
+   
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Function to show the modal with a given message
+        function showModal(message) {
+            const modal = document.getElementById('myModal');
+            const modalMessage = document.getElementById('modalMessage');
+            const closeButton = document.getElementsByClassName('close')[0];
+    
+            if (!modal || !modalMessage || !closeButton) {
+                console.error("Modal elements are missing in the HTML");
+                return;
+            }
+    
+            modalMessage.innerText = message;
+            modal.style.display = 'flex';
+    
+            closeButton.onclick = function() {
+                modal.style.display = 'none';
+            }
+    
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+    
+        // Function to get query parameters
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const regex = /([^&=]+)=([^&]*)/g;
+            let match;
+            while (match = regex.exec(queryString)) {
+                params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+            }
+            return params;
+        }
+    
+        const params = getQueryParams();
+        console.log("Query Params:", params);
+    
+        if (params.message || params.error) {
+            const message = params.message || params.error;
+            console.log("Showing Modal with message:", message);
+            showModal(message);
+    
+            // Remove message or error query parameters from the URL
+            const url = new URL(window.location);
+            url.searchParams.delete('message');
+            url.searchParams.delete('error');
+            window.history.replaceState({}, document.title, url.pathname);
+    
+            // Trigger re-authentication if needed (Example)
+            // authenticateUser(); // You can call a function to re-authenticate the user
+        }
+    });
+    
+    
+    
+    function searchPosts() {
+        const query = document.getElementById('search-bar').value;
+        const category = document.getElementById('search-category').value;
+        window.location.href = `/search?query=${query}&category=${category}`;
+    }
+
+
+
+/*Hero Slider*/
+
+
+const heroSlider = document.querySelector("[data-hero-slider]");
+const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
+const heroSliderPrevBtn = document.querySelector("[data-prev-btn]");
+const heroSliderNextBtn = document.querySelector("[data-next-btn]");
+
+if (heroSliderItems.length > 0) {
+  let currentSlidePos = 0;
+  let lastActiveSliderItem = heroSliderItems[0];
+
+  const updateSliderPos = function() {
+    lastActiveSliderItem.classList.remove("active");
+    heroSliderItems[currentSlidePos].classList.add("active");
+    lastActiveSliderItem = heroSliderItems[currentSlidePos];
+  };
+
+  const slideNext = function() {
+    currentSlidePos = (currentSlidePos + 1) % heroSliderItems.length;
+    updateSliderPos();
+  };
+
+  const slidePrev = function() {
+    currentSlidePos = (currentSlidePos - 1 + heroSliderItems.length) % heroSliderItems.length;
+    updateSliderPos();
+  };
+
+  if (heroSliderNextBtn && heroSliderPrevBtn) {
+    heroSliderNextBtn.addEventListener("click", slideNext);
+    heroSliderPrevBtn.addEventListener("click", slidePrev);
+  }
+
+  let autoSlideInterval;
+  const autoSlide = function() {
+    autoSlideInterval = setInterval(slideNext, 4000);
+  };
+
+  const stopAutoSlide = function() {
+    clearInterval(autoSlideInterval);
+  };
+
+  if (heroSliderNextBtn && heroSliderPrevBtn) {
+    [heroSliderNextBtn, heroSliderPrevBtn].forEach(button => {
+      button.addEventListener("mouseover", stopAutoSlide);
+      button.addEventListener("mouseout", autoSlide);
+    });
+  }
+
+  window.addEventListener("load", autoSlide);
+}
+
+
+  
+
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+    

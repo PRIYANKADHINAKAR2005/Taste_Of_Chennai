@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="title" content="Taste of Chennai- Food Varieties Of Chennai">
+    <meta name="desciption" content="Words of taste buds flows here">
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <!--Favicon link-->
+
+    <link rel="shortcut icon" href="\images\logo.jpeg" type="image">
+    <title>Taste Of Chennai</title>
+
+    <!--Google Fonts Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+    <!--Preload Images-->
+    <link rel="preload" as="image" href="/public/images/hero-slider-1.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-2.jpg">
+    <link rel="preload" as="image" href="/public/images/hero-slider-3.jpg">
+    
+</head>
+<body>
+    
+
+    <div  class="preload" data-preload>
+        <div class="background"></div>
+        <div class="circle"></div>
+        <p class="text">Taste Of Chennai</p>
+    </div>
+
+
+    <!-- Header -->
+    <header class="header" data-header>
+        <div class="container">
+          <a href="/" class="logo">
+            <img src="/images/image.png" alt="TasteOfChennai Home" width="160" height="50">
+          </a>
+          <nav class="navbar" data-navbar>
+            <button class="close-btn" aria-label="close menu" data-nav-toggler>
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+            <ul class="navbar-list">
+              <li class="navbar-item">
+                <a href="/" class="navbar-link hover-underline">
+                  <div class="separator"></div>
+                  <span class="span">Home</span>
+                </a>
+              </li>
+              <li class="navbar-item">
+                <a href="/#about" class="navbar-link hover-underline">
+                  <div class="separator"></div>
+                  <span class="span">About Us</span>
+                </a>
+              </li>
+              <li class="navbar-item">
+                <a href="/post" class="navbar-link hover-underline">
+                  <div class="separator"></div>
+                  <span class="span">Posts</span>
+                </a>
+              </li>
+              <li class="navbar-item">
+                <a href="/contact" class="navbar-link hover-underline">
+                  <div class="separator"></div>
+                  <span class="span">Contact</span>
+                </a>
+              </li>
+              <li class="navbar-item">
+                <a href="/login" class="navbar-link hover-underline">
+                  <div class="separator"></div>
+                  <span class="span">Login</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </button>
+          <div class="overlay" data-nav-toggler data-overlay></div>
+        </div>
+      </header>
+      
+
+
+
+  
+    <script >
+        'use strict';
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const navLinks = document.querySelectorAll('.navbar-link');
+          const currentUrl = window.location.pathname;
+      
+          navLinks.forEach(link => {
+              if (link.getAttribute('href') === currentUrl) {
+                  link.classList.add('active');
+              }
+          });
+      });
+/**Preload */
+const preloader = document.querySelector("[data-preload]");
+
+
+    window.addEventListener("load", function() {
+    console.log("Page loaded"); 
+    preloader.classList.add("loaded");
+    document.body.classList.add("loaded");
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const navTogglers = document.querySelectorAll('[data-nav-toggler]');
+        const navbar = document.querySelector('[data-navbar]');
+        const overlay = document.querySelector('[data-overlay]');
+      
+        navTogglers.forEach(toggler => {
+          toggler.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            overlay.classList.toggle('active');
+          });
+        });
+      });
+      
+      // Select the header element
+const header = document.querySelector("[data-header]");
+let lastScrollPos = 0;
+
+// Function to hide or show the header based on scroll direction
+const hideHeader = function() {
+  const currentScrollPos = window.scrollY;
+  const isScrollDown = lastScrollPos < currentScrollPos;
+  
+  if (isScrollDown) {
+    header.classList.add("hide");
+  } else {
+    header.classList.remove("hide");
+  }
+
+  // Update the last scroll position
+  lastScrollPos = currentScrollPos;
+};
+
+// Event listener for scrolling
+window.addEventListener("scroll", function() {
+  // Add or remove the 'active' class based on scroll position
+  if (window.scrollY >= 100) {
+    header.classList.add("active");
+  } else {
+    header.classList.remove("active");
+  }
+
+  // Call the function to hide or show the header based on scroll direction
+  hideHeader();
+});
+
+
+
+      
+
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
