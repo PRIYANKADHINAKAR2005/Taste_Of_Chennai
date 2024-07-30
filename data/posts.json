@@ -1,3 +1,50 @@
 [
-  
+ {
+    "foodName": "Biriyani",
+    "resturant": "SS Hyderbad Biriyani",
+    "content": "Visiting SS Hyderabad Biriyani was like a delightful journey back to the streets of Hyderabad! Each bite of their biriyani was a burst of rich flavors, reminiscent of my favorite food memories.",
+    "author": "Priyanka",
+    "date": "15/7/2024",
+    "email": "priycs16@rmkcet.ac.in"
+  },
+  {
+    "foodName": "Veg Balls",
+    "resturant": "Mattas Veg Restuarant",
+    "content": "Trying the Mattas Veg Balls at was a revelation! These crispy, flavorful bites were a perfect vegetarian delight, bursting with spices and textures that left me craving more.",
+    "author": "Latha Lakshmi",
+    "date": "18/7/2024",
+    "email": "lathalakshmi@gmail.com"
+  },
+  {
+    "foodName": "Kaddai Panner",
+    "resturant": "Hotel Sri Ram",
+    "content": "The authentic veg Dishes are available at hotel Sairam.One Of the best dishes is Kaddai Panner.. Dont miss it guys.....",
+    "author": "Dhinakar",
+    "date": "20/7/2024",
+    "email": "dhinakar@gmail.com"
+  },
+  {
+    "foodName": "Pizza",
+    "resturant": "Dominos Pizza",
+    "content": "Domino's Margherita Pizza is a classic favorite for a reason! The simplicity of fresh tomatoes, mozzarella cheese, and basil on a crispy crust is perfection. Each bite delivers a comforting, cheesy goodness that's hard to resist.",
+    "author": "Ranjana",
+    "date": "25/7/2024",
+    "email": "ranjcs119@rmkcet.ac.in"
+  },
+  {
+    "foodName": "Dragon Chicken",
+    "resturant": "Beach Station",
+    "content": "Tasting Dragon Chicken at Beach Station was a fiery adventure! The crispy chicken, coated in a sweet and spicy sauce with a hint of garlic, was an explosion of flavors. It's a must-try for those who love bold, vibrant dishes!",
+    "author": "Monisha",
+    "date": "30/7/2024",
+    "email": "monics097@rmkcet.ac.in"
+  },
+  {
+    "foodName": "Thalappakatti Chicken Biriyani",
+    "resturant": "Dindigul Thalappakatti Restaurant",
+    "content": "Thalappakatti is famous for their biriyani's which is made by a special blend of spices. They use little pearl rice, which differs from all other biriyani's out there, the rice is well cooked , they use ghee in right amount that gives a special touch for the dish , the pieces are very tender and juicy with good amount of masala. I have tried their Chicken biriyani and one word I can put on it is \" It's fabulous🤗 \". I Loved It!.....make a try, you too can 😊",
+    "author": "Chitesh",
+    "date": "30/7/2024",
+    "email": "chitesh@gmail.com"
+  } 
 ]
